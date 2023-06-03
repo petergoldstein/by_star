@@ -2,6 +2,16 @@ source 'http://rubygems.org'
 
 gemspec
 
+group :development, :test do
+  gem 'activerecord-jdbcmysql-adapter', platform: :jruby
+  gem 'activerecord-jdbcpostgresql-adapter', platform: :jruby
+  gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
+  gem 'mysql2', platform: [:ruby, :mswin, :mingw]
+  gem 'pg', platform: [:ruby, :mswin, :mingw]
+  gem 'sqlite3', platform: [:ruby, :mswin, :mingw]
+end
+
+
 ar_version = ENV['ACTIVE_RECORD_VERSION']
 ar_version = case ar_version
                when 'master' then {github: 'rails'}
